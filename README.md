@@ -1,13 +1,13 @@
-## 适合学生搭建的个人博客
+## 基于Spring-boot个人博客系统:bulb:
 #### 采用**springboot2.1.7+mybatis-plus**
 ## 本地开发  
-**第一步：** 把数据库文件导入本地，已上传  
-**第二步：** 修改application一系列配置文件(redis配置文件，数据库配置文件)，如不知道application存在位置，可查看下面的项目架构  
-**第三步：** 默认账号：18379461836  密码：11111111  
-**第四步：** 在网页打开： localhost:8080  
- 
+- **第一步：** 把数据库文件导入本地，已上传  
+- **第二步：** 修改application一系列配置文件(redis配置文件，数据库配置文件)，如不知道application存在位置，可查看下面的项目架构  
+- **第三步：** 默认账号：18379461836  密码：11111111  
+- **第四步：** 在网页打开： localhost:8080  
+
 ## 项目架构
-```
+```java
 |--- pom                                        // vblog配置文件
 |--- blog-plus.sql                              // vblog数据库设计
 |--- src                                        // 源代码
@@ -36,7 +36,7 @@
 ```
 
 ## 技术能力
-  我是一个后台开发人（Java）,对前台不是那么的了解，单单只是能搭出来，效果的话，我已经尽我洪荒之力了，就搭出这个水平，希望不要见怪。
+ 我是一个后台开发人（Java）,对前台不是那么的了解，单单只是能搭出来，效果的话，我已经尽我洪荒之力了，就搭出这个水平，希望不要见怪:sleepy:。
 ### 项目介绍
 1. 博客项目对于初学spring boot的人是个不错的练手项目，即不容易，又不复杂，体验一下做项目的感受。  
 2. 该网站已完成基本功能，后续不断更新修改。  
@@ -44,17 +44,18 @@
 4. 待部署。  
 ## 技术展示
 ### 后台：
-项目构建：Maven  
-web框架： spring boot  
-数据持久层： mybatis-plus  
-安全框架： shiro (暂定，后续可能采用jwt) 
-搜索引擎： elasticSearch  
-缓存：redis  
-数据库：Mysql  
+:seedling:项目构建：Maven  
+:seedling:web框架： spring boot  
+:seedling:数据持久层： mybatis-plus  
+:seedling:安全框架： shiro (暂定，后续可能采用jwt) 
+:seedling:搜索引擎： elasticSearch  
+:seedling:缓存：redis  
+:seedling:数据库：Mysql  
+
 ### 前台
-前台框架：[layui框架](https://www.layui.com/ "layui框架") [amazeui框架](https://amazeui.clouddeep.cn/ "amazeui框架")  
-前端模板： thymeleaf  
-  
+:seedling:前台框架：[layui框架](https://www.layui.com/ "layui框架") [amazeui框架](https://amazeui.clouddeep.cn/ "amazeui框架")  
+:seedling:前端模板： thymeleaf  
+
 
 #### 一些细小的框架，就不一一列举了
 
