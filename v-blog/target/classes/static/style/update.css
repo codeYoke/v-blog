@@ -1,0 +1,34 @@
+.hao-center-div{
+    width: 95%;
+    margin: 0 auto;
+    padding: 3% 0 0 0;
+}
+.hao-update{
+    font-size: 23px;
+    color: rgba(7, 38, 41, 0.5);
+
+}
+.hao-session-content .hao-center{
+    border-radius: 0%;
+}
+.hao-log{
+    margin-top: 8%;
+    font-size: 25px;
+    color: rgba(96, 11, 112, 0.5);
+}
+.hao-updatelog{
+    /*margin-top: 8%;*/
+}
+.hao-updatelog h3{
+    color: rgba(0, 0, 0, 0.56);
+}
+.hao-ul-li{
+    margin-top: 15%;
+}
+.hao-ul-li p{
+    font-size: 17px;
+    color: rgba(75, 11, 12, 0.5);
+}
+.hao-ul-li-first{
+    margin-top: 8%;
+}
