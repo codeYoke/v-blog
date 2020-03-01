@@ -3,6 +3,7 @@ package com.fjh.modules.sys.controller;
 import com.fjh.common.utils.BlogJSONResult;
 import com.fjh.common.utils.Constant;
 import com.fjh.common.utils.RedisOperator;
+import com.fjh.common.utils.verify.service.SMTPService;
 import com.fjh.modules.sys.entity.UsersEntity;
 import com.fjh.modules.sys.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class RegisterController {
 
  /*   @Autowired
     private SMSService smsService;*/
+    @Autowired
+    private SMTPService smtpService;
 
     @Autowired
     private RegisterService registerService;
@@ -124,4 +127,33 @@ public class RegisterController {
         }
     }*/
 
+    /**
+     *  获取验证码(点击按钮) -- 注册
+     * @param email 邮箱
+     * @return
+     */
+    @GetMapping("getCode")
+    public BlogJSONResult getCode(@RequestParam("email") String email){
+        String s = smtpService.sendMesModel(email, 0);
+        System.out.println(s);
+        if(s.equals("OK")){
+            return BlogJSONResult.ok();
+        }else{
+            return BlogJSONResult.errorMsg("获取验证码失败");
+        }
+    }
+
+    /**
+     *  获取验证码(五分钟输入正确验证码即可)
+     * @param phone 手机号
+     * @return
+     */
+    @GetMapping("getCodeReflush")
+    public BlogJSONResult getCodeReflush(@RequestParam("phone") String phone){
+        if(redisOperator.hasKey(Constant.USER_PHONE_CODE+phone)){
+            return BlogJSONResult.ok(redisOperator.get(Constant.USER_PHONE_CODE+phone));
+        }else{
+            return BlogJSONResult.errorMsg("验证码失效");
+        }
+    }
 }

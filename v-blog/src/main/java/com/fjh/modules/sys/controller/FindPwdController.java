@@ -3,7 +3,7 @@ package com.fjh.modules.sys.controller;
 import com.fjh.common.utils.BlogJSONResult;
 import com.fjh.common.utils.Constant;
 import com.fjh.common.utils.RedisOperator;
-import com.fjh.common.utils.phoneVerify.service.SMSService;
+import com.fjh.common.utils.verify.service.SMSService;
 import com.fjh.modules.sys.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

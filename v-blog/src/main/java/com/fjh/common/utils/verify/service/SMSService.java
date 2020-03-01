@@ -1,11 +1,11 @@
-package com.fjh.common.utils.phoneVerify.service;
+package com.fjh.common.utils.verify.service;
 
 import com.github.qcloudsms.*;
 import com.github.qcloudsms.httpclient.HTTPException;
 import com.fjh.common.utils.Constant;
 import com.fjh.common.utils.RedisOperator;
-import com.fjh.common.utils.phoneVerify.component.PhoneRandomBuilder;
-import com.fjh.common.utils.phoneVerify.util.SMSUtil;
+import com.fjh.common.utils.verify.component.PhoneRandomBuilder;
+import com.fjh.common.utils.verify.util.SMSUtil;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
