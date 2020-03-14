@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.dao
  * @Description:
- * @Date: 2019/8/19 0019 20:28
+ * @Date: 2019/9/19 0019 20:28
  **/
 @Repository
 public interface FriendLikesDao extends BaseMapper<FriendLikesEntity> {

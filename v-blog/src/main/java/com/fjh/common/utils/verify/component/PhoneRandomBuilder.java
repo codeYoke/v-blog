@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @ProjectName: adminsystem
  * @Package: com.fjh.component
  * @Description: 手机验证码随机生成
- * @Date: 2019/8/4 0004 11:19
+ * @Date: 2019/9/4 0004 11:19
  **/
 @Component
 public class PhoneRandomBuilder {

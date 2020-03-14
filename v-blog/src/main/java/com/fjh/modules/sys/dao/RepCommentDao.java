@@ -12,7 +12,7 @@ import java.util.List;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.dao
  * @Description:
- * @Date: 2019/8/17 0017 19:01
+ * @Date: 2019/9/17 0017 19:01
  **/
 @Repository
 public interface RepCommentDao extends BaseMapper<ReportCommentEntity> {

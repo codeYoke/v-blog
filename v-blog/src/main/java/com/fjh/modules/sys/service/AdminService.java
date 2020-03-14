@@ -2,13 +2,14 @@ package com.fjh.modules.sys.service;
 
 import com.fjh.common.utils.PagedResult;
 import com.fjh.modules.sys.entity.FriendurlEntity;
+import com.fjh.modules.sys.entity.NoticeEntity;
 
 /**
  * @Author: fjh
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service
  * @Description:
- * @Date: 2019/8/2 0002 18:00
+ * @Date: 2019/9/2 0002 18:00
  **/
 public interface AdminService {
 
@@ -20,7 +21,12 @@ public interface AdminService {
      */
     int insFriendUrl(FriendurlEntity friendurlEntity);
 
-
+    /**
+     * 更新公告
+     * @param noticeEntity
+     * @return
+     */
+    int insNotice(NoticeEntity noticeEntity);
     /**
      * 全部用户信息
      * @return
@@ -32,6 +38,13 @@ public interface AdminService {
      * @return
      */
     PagedResult getAllFriendsUrl(Integer pageSize, Integer pageNum);
+
+
+    /**
+     * 全部公告信息
+     * @return
+     */
+    PagedResult getAllNotice(Integer pageSize, Integer pageNum);
 
     /**
      * 全部博客信息
@@ -52,6 +65,12 @@ public interface AdminService {
      * @return
      */
     int delFriendUrl(Long id);
+
+    /**
+     * 删除公告
+     * @return
+     */
+    int delNotice(Long id);
 
 
     /**

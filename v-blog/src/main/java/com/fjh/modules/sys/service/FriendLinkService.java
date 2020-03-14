@@ -9,7 +9,7 @@ import java.util.List;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service
  * @Description:
- * @Date: 2019/8/19 0019 19:14
+ * @Date: 2019/9/19 0019 19:14
  **/
 public interface FriendLinkService {
 

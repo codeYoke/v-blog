@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.controller
  * @Description: 首页
- * @Date: 2019/8/3 0003 10:43
+ * @Date: 2019/9/3 0003 10:43
  **/
 @RestController
 public class IndexController {

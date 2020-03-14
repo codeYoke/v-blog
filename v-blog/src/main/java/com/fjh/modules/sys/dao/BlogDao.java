@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.dao
  * @Description:
- * @Date: 2019/8/17 0017 15:44
+ * @Date: 2019/9/17 0017 15:44
  **/
 @Repository
 public interface BlogDao extends BaseMapper<BlogMessageVOEntity> {

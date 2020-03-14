@@ -9,7 +9,7 @@ import java.util.List;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service
  * @Description: 异步任务(数据库和redis保持一致)
- * @Date: 2019/8/9 0009 15:21
+ * @Date: 2019/9/9 0009 15:21
  **/
 public interface AsyncService {
 

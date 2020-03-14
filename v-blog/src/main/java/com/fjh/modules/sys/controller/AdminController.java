@@ -4,6 +4,7 @@ import com.fjh.common.utils.BlogJSONResult;
 import com.fjh.common.utils.PagedResult;
 import com.fjh.modules.sys.entity.FriendurlEntity;
 import com.fjh.modules.sys.entity.GuestEntity;
+import com.fjh.modules.sys.entity.NoticeEntity;
 import com.fjh.modules.sys.service.AdminService;
 import com.fjh.modules.sys.service.UserService;
 import org.apache.shiro.SecurityUtils;
@@ -18,7 +19,7 @@ import java.util.List;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.controller
  * @Description: 后台管理者controller
- * @Date: 2019/8/2 0002 17:53
+ * @Date: 2019/9/2 0002 17:53
  **/
 @RestController
 public class AdminController {
@@ -44,6 +45,19 @@ public class AdminController {
         return BlogJSONResult.errorMsg("新增失败");
     }
 
+    /**
+     * 更新公告
+     * @param noticeEntity
+     * @return
+     */
+    @PostMapping("insNotice")
+    private BlogJSONResult insFriendUrl(@RequestBody NoticeEntity noticeEntity){
+        int result = adminService.insNotice(noticeEntity);
+        if(result > 0){
+            return BlogJSONResult.ok();
+        }
+        return BlogJSONResult.errorMsg("更新失败");
+    }
 
     /**
      * 全部友链信息
@@ -55,6 +69,22 @@ public class AdminController {
         Subject subject = SecurityUtils.getSubject();
         if(subject.hasRole("admin")){
             PagedResult allUsers = adminService.getAllFriendsUrl(pageSize, pageNum);
+            return BlogJSONResult.ok(allUsers);
+        }else{
+            return BlogJSONResult.errorRolesMsg("无权限");
+        }
+    }
+
+    /**
+     * 全部公告信息
+     * @return
+     */
+    @GetMapping("getAllNotice")
+    public BlogJSONResult getAllNotice(@RequestParam(value = "pageSize") Integer pageSize,
+                                           @RequestParam(value = "pageNum") Integer pageNum){
+        Subject subject = SecurityUtils.getSubject();
+        if(subject.hasRole("admin")){
+            PagedResult allUsers = adminService.getAllNotice(pageSize, pageNum);
             return BlogJSONResult.ok(allUsers);
         }else{
             return BlogJSONResult.errorRolesMsg("无权限");
@@ -125,6 +155,21 @@ public class AdminController {
         }
     }
 
+    /**
+     * 删除公告
+     * @param id
+     * @return
+     */
+    @GetMapping("delNotice")
+    public BlogJSONResult delNotice(@RequestParam(value = "id") Long id){
+        Subject subject = SecurityUtils.getSubject();
+        if(subject.hasRole("admin")){
+            adminService.delNotice(id);
+            return BlogJSONResult.ok();
+        }else{
+            return BlogJSONResult.errorRolesMsg("无权限");
+        }
+    }
 
     /**
      * 删除博客

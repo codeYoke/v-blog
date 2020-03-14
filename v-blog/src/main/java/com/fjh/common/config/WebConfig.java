@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @ProjectName: adminsystem
  * @Package: com.fjh.common.config
  * @Description: 路径映射配置
- * @Date: 2019/8/16 0016 20:31
+ * @Date: 2019/9/16 0016 20:31
  **/
 @Configuration
 public class WebConfig implements WebMvcConfigurer {

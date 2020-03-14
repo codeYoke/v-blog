@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.dao
  * @Description:
- * @Date: 2019/8/17 0017 15:16
+ * @Date: 2019/9/17 0017 15:16
  **/
 @Repository
 public interface LabelDao extends BaseMapper<LabelEntity> {

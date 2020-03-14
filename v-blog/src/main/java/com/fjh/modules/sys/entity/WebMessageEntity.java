@@ -9,7 +9,7 @@ import lombok.Data;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.entity
  * @Description: 网站信息
- * @Date: 2019/8/9 0009 18:01
+ * @Date: 2019/9/9 0009 18:01
  **/
 @Data
 @TableName(value = "web")

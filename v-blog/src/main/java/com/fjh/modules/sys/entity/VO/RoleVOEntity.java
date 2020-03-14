@@ -14,7 +14,7 @@ import java.util.Set;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.entity.VO
  * @Description: 身份验证
- * @Date: 2019/8/17 0017 12:38
+ * @Date: 2019/9/17 0017 12:38
  **/
 @TableName("roles")
 @Data

@@ -10,8 +10,8 @@ import java.io.Serializable;
  * @Author: fjh
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.entity
- * @Description:
- * @Date: 2019/8/19 0019 21:29
+ * @Description: 具体友链类
+ * @Date: 2019/9/19 0019 21:29
  **/
 @Data
 @TableName(value = "friendurl")

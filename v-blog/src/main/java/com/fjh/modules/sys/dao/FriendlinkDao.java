@@ -12,7 +12,7 @@ import java.util.List;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.dao
  * @Description:
- * @Date: 2019/8/19 0019 20:26
+ * @Date: 2019/9/19 0019 20:26
  **/
 @Repository
 public interface FriendlinkDao extends BaseMapper<FriendLinkEntity> {

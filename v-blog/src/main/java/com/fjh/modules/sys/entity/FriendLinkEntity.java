@@ -12,7 +12,7 @@ import java.util.Set;
  * @Author: fjh
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.entity
- * @Description: 友链实体类
+ * @Description: 友链板块评论实体类
  * @Date: 2019/7/24 0024 17:13
  **/
 @Data

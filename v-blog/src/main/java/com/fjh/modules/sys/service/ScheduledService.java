@@ -5,7 +5,7 @@ package com.fjh.modules.sys.service;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service
  * @Description: 定时任务存储信息
- * @Date: 2019/8/9 0009 16:31
+ * @Date: 2019/9/9 0009 16:31
  **/
 public interface ScheduledService {
 

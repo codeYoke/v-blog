@@ -7,7 +7,7 @@ import com.fjh.modules.sys.entity.UsersEntity;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service
  * @Description:
- * @Date: 2019/8/9 0009 17:30
+ * @Date: 2019/9/9 0009 17:30
  **/
 public interface RegisterService {
 

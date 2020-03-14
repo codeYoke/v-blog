@@ -12,7 +12,7 @@ import java.util.List;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.dao
  * @Description:
- * @Date: 2019/8/17 0017 20:38
+ * @Date: 2019/9/17 0017 20:38
  **/
 @Repository
 public interface RepGuestDao extends BaseMapper<RepGuestEntity> {

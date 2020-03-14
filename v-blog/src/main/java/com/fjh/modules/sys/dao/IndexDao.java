@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.mapper
  * @Description:
- * @Date: 2019/8/8 0008 16:14
+ * @Date: 2019/9/8 0008 16:14
  **/
 @Repository
 public interface IndexDao {

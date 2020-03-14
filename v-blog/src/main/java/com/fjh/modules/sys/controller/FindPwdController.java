@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.controller
  * @Description: 忘记密码controller
- * @Date: 2019/8/4 0004 15:52
+ * @Date: 2019/9/4 0004 15:52
  **/
 @RestController
 public class FindPwdController {

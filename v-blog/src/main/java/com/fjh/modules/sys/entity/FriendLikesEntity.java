@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Author: fjh
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.entity
- * @Description: 友链点赞用户判断
+ * @Description: 友链评论点赞用户实体类
  * @Date: 2019/7/24 0024 19:51
  **/
 @Data

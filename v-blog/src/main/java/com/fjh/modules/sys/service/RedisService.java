@@ -7,7 +7,7 @@ import com.fjh.modules.sys.entity.VO.BlogMessageVOEntity;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service
  * @Description:
- * @Date: 2019/8/17 0017 12:15
+ * @Date: 2019/9/17 0017 12:15
  **/
 public interface RedisService {
 

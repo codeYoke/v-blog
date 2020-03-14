@@ -5,7 +5,7 @@ package com.fjh.common.utils.verify.util;
  * @ProjectName: adminsystem
  * @Package: com.fjh.util
  * @Description: 腾讯云短信验证常量
- * @Date: 2019/8/4 0004 10:50
+ * @Date: 2019/9/4 0004 10:50
  **/
 public class SMSUtil {
 

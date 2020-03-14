@@ -9,8 +9,10 @@ import com.fjh.common.utils.RedisOperator;
 import com.fjh.common.utils.TimeUtil;
 import com.fjh.modules.sys.dao.BlogDao;
 import com.fjh.modules.sys.dao.FriendurlDao;
+import com.fjh.modules.sys.dao.NoticeDao;
 import com.fjh.modules.sys.dao.UsersDao;
 import com.fjh.modules.sys.entity.FriendurlEntity;
+import com.fjh.modules.sys.entity.NoticeEntity;
 import com.fjh.modules.sys.entity.UsersEntity;
 import com.fjh.modules.sys.entity.VO.BlogMessageVOEntity;
 import com.fjh.modules.sys.service.AdminService;
@@ -26,7 +28,7 @@ import java.util.List;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service.impl
  * @Description: 管理员业务逻辑层
- * @Date: 2019/8/2 0002 18:00
+ * @Date: 2019/9/2 0002 18:00
  **/
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -44,6 +46,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private FriendurlDao friendurlDao;
+
+    @Autowired
+    private NoticeDao noticeDao;
+
 //
 //    @Autowired
 //    private EsService esService;
@@ -96,6 +102,22 @@ public class AdminServiceImpl implements AdminService {
         return friendurlDao.insert(friendurlEntity);
     }
 
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int delNotice(Long id) {
+        int i = noticeDao.delete(new QueryWrapper<NoticeEntity>().eq("id", id));
+        return i;
+    }
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int insNotice(NoticeEntity noticeEntity) {
+        TimeUtil timeUtil = new TimeUtil();
+        noticeEntity.setId(timeUtil.getLongTime());
+        noticeEntity.setCreateTime(timeUtil.getFormatDateForSix());
+        return noticeDao.insert(noticeEntity);
+    }
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedResult findAllUsers(Integer pageSize, Integer pageNum) {
@@ -116,6 +138,20 @@ public class AdminServiceImpl implements AdminService {
 
         IPage<FriendurlEntity> usersEmptyIPage = friendurlDao.selectPage(new Page<>(pageNum, pageSize), new QueryWrapper<FriendurlEntity>().orderByDesc("id"));
         List<FriendurlEntity> records = usersEmptyIPage.getRecords(); // 显示内容
+        PagedResult grid = new PagedResult();
+        grid.setPage(pageNum);
+        grid.setTotal(usersEmptyIPage.getPages());
+        grid.setRecords(usersEmptyIPage.getTotal());
+        grid.setRows(records);
+        return grid;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PagedResult getAllNotice(Integer pageSize, Integer pageNum) {
+
+        IPage<NoticeEntity> usersEmptyIPage = noticeDao.selectPage(new Page<>(pageNum, pageSize), new QueryWrapper<NoticeEntity>().orderByDesc("id"));
+        List<NoticeEntity> records = usersEmptyIPage.getRecords(); // 显示内容
         PagedResult grid = new PagedResult();
         grid.setPage(pageNum);
         grid.setTotal(usersEmptyIPage.getPages());

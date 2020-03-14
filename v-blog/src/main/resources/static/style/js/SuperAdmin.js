@@ -1,14 +1,16 @@
 $(function () {
-    $("#userSet,#blogSet,#fridSet").css("display", "none");
+    $("#notiSet,#userSet,#blogSet,#fridSet").css("display", "none");
     $(".list-item").click(function () {
         $(this).addClass("active").siblings().removeClass("active");
         var flag = $(this).attr('class').substring(10, 17);
-        $("#websSet,#userSet,#blogSet,#fridSet").css("display", "none");
+        $("#websSet,#notiSet,#userSet,#blogSet,#fridSet").css("display", "none");
         $("#" + flag).css("display", "block");
     });
 });
 
 var noticeBox = $(".notice");
+
+
 /**
  * 保存友链
  */
@@ -50,6 +52,47 @@ $(".savebtn").click(function () {
     }, 3000);
 
 });
+
+/*公告更新*/
+$(".updatebtn").click(function () {
+    var noticeContent = $("#notice-content").val().trim();
+    if (noticeContent == "" || noticeContent == "") {
+        $(".notice-friend").show();
+        setTimeout(function () {
+            noticeBox.hide();
+        }, 3000);
+        return;
+    }
+    var str = {
+        "noticeContent": noticeContent
+    }
+    $.ajax({
+        type: "POST",
+        url: "insNotice",
+        // contentType: "application/x-www-form-urlencoded",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(str),
+        success: function (data) {
+            //放入数据
+            if (data.status == 200) {
+                $(".notice-box-suc").show();
+                //公告显示
+                $(".hao-notice-content").html(''+noticeContent);
+            } else if (data.status == 500) {
+                $(".notice-fail").show();
+            }
+        },
+        error: function () {
+        }
+    });
+    // 定时关闭错误提示框
+    var closeNoticeBox = setTimeout(function () {
+        noticeBox.hide();
+    }, 3000);
+
+});
+
 
 
 /**
@@ -423,6 +466,119 @@ function putPageHelperFriend(data, curnum) {
         });
     });
 }
+
+/**
+ * 分页查询公告信息
+ * @param data
+ */
+function putPageHelperNotice(data, curnum) {
+    var count = data.data.records;
+    //总页数大于页码总数
+    layui.use('laypage', function () {
+        var laypage = layui.laypage;
+        //执行一个laypage实例
+        laypage.render({
+            elem: 'page-helper-notice'
+            , count: count//数据总数
+            , limit: 10
+            , curr: curnum
+            , jump: function (obj, first) {
+                if (!first) {
+                    curnum = obj.curr;
+                    ajaxFirstFriend(curnum);
+                }
+            }
+        });
+    });
+}
+
+/**
+ * 获取公告信息
+ */
+$(".notiSet").click(function () {
+    ajaxFirstNotice(1);
+})
+
+function ajaxFirstNotice(currentPage) {
+    var jsonStr = {pageSize: 10, pageNum: currentPage};
+    $.ajax({
+        type: "GET",
+        url: "/getAllNotice",
+        // contentType: "application/x-www-form-urlencoded",
+        contentType: "application/json",
+        dataType: "json",
+        data: jsonStr,
+        success: function (data) {
+            //放入数据
+            if (data.status == 200) {
+                putInFriend(data.data);
+                scrollTo(0, 0);//回到顶部
+
+                // 分页查询
+                putPageHelperNotice(data, currentPage);
+            } else {
+                alert("无权限");
+                toLogin();
+            }
+        },
+        error: function () {
+        }
+    })
+}
+
+function putInNotice(data) {
+    $(".usersMessage").html('');
+    $.each(data.rows, function (index, obj) {
+        var center = (
+            '<tr>' +
+            '<td class="id" style="display: none;">' + obj['id'] + '</td>' +
+            '<td>' + (index + 1) + '</td>' +
+            '<td>' + obj['noticeContent'] + '</td>' +
+            '<td>' + obj['createTime'] + '</td>' +
+            '<td>' +
+            '<div class="am-btn-toolbar">' +
+            '<div class="am-btn-group am-btn-group-xs">' +
+            '<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only hao-delete"><span class="am-icon-trash-o"></span> 删除</button>' +
+            '</div>' +
+            '</div>' +
+            '</td>'
+        );
+        $(".usersMessage").append(center);
+    })
+
+    /**
+     * 公告删除管理
+     */
+    $(".hao-delete").click(function () {
+        var $this = $(this);
+        var id = $this.parent().parent().parent().parent().find($(".id")).text();
+        $.ajax({
+            type: "GET",
+            url: "/delNotice",
+            // contentType: "application/x-www-form-urlencoded",
+            contentType: "application/json",
+            dataType: "json",
+            data: {
+                id: id
+            },
+            success: function (data) {
+                //放入数据
+                if (data.status == 200) {
+                    ajaxFirstNotice(1);
+                } else {
+                    alert("无权限");
+                    toLogin();
+                }
+            },
+            error: function () {
+            }
+        })
+
+    });
+
+}
+
+
 
 /**
  * 登录

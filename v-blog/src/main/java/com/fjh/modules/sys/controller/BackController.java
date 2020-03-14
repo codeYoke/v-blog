@@ -287,4 +287,13 @@ public class BackController {
     }
 
 
+    /**
+     * 留言板
+     *
+     * @return
+     */
+    @GetMapping("/notice")
+    public String notice(HttpServletRequest request) {
+        return "notice";
+    }
 }

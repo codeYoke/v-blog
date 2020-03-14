@@ -17,7 +17,7 @@ import java.io.IOException;
  * @ProjectName: adminsystem
  * @Package: com.fjh.service
  * @Description: 腾讯短信服务类
- * @Date: 2019/8/4 0004 11:02
+ * @Date: 2019/9/4 0004 11:02
  **/
 @Service
 public class SMSService {

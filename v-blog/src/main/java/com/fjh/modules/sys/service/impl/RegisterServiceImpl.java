@@ -20,7 +20,7 @@ import java.util.UUID;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service.impl
  * @Description:
- * @Date: 2019/8/9 0009 17:32
+ * @Date: 2019/9/9 0009 17:32
  **/
 @Service
 public class RegisterServiceImpl implements RegisterService {

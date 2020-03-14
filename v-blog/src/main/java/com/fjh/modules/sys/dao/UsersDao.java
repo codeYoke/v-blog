@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.dao
  * @Description:
- * @Date: 2019/8/18 0018 10:40
+ * @Date: 2019/9/18 0018 10:40
  **/
 @Repository
 public interface UsersDao extends BaseMapper<UsersEntity> {

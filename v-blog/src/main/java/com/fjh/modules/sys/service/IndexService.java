@@ -5,7 +5,7 @@ package com.fjh.modules.sys.service;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.service
  * @Description: 网页信息
- * @Date: 2019/8/8 0008 16:09
+ * @Date: 2019/9/8 0008 16:09
  **/
 public interface IndexService {
 

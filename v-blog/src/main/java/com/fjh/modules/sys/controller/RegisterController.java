@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @ProjectName: adminsystem
  * @Package: com.fjh.modules.sys.controller
  * @Description: 注册
- * @Date: 2019/8/4 0004 12:20
+ * @Date: 2019/9/4 0004 12:20
  **/
 @RestController
 public class RegisterController {
