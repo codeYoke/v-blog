@@ -13,16 +13,13 @@ package com.fjh.common.utils;
  * 				555：异常抛出信息
  */
 public class BlogJSONResult {
-
     // 响应业务状态
     private Integer status;
-
     // 响应消息
     private String msg;
-
     // 响应中的数据
     private Object data;
-    
+
     private String ok;	// 不使用
 
     public static BlogJSONResult build(Integer status, String msg, Object data) {
@@ -36,15 +33,15 @@ public class BlogJSONResult {
     public static BlogJSONResult ok() {
         return new BlogJSONResult(null);
     }
-    
+
     public static BlogJSONResult errorMsg(String msg) {
         return new BlogJSONResult(500, msg, null);
     }
-    
+
     public static BlogJSONResult errorMap(Object data) {
         return new BlogJSONResult(501, "error", data);
     }
-    
+
     public static BlogJSONResult errorTokenMsg(String msg) {
         return new BlogJSONResult(502, msg, null);
     }
@@ -52,7 +49,7 @@ public class BlogJSONResult {
     public static BlogJSONResult errorRolesMsg(String msg) {
         return new BlogJSONResult(503, msg, null);
     }
-    
+
     public static BlogJSONResult errorException(String msg) {
         return new BlogJSONResult(555, msg, null);
     }
@@ -101,12 +98,12 @@ public class BlogJSONResult {
         this.data = data;
     }
 
-	public String getOk() {
-		return ok;
-	}
+    public String getOk() {
+        return ok;
+    }
 
-	public void setOk(String ok) {
-		this.ok = ok;
-	}
+    public void setOk(String ok) {
+        this.ok = ok;
+    }
 
 }

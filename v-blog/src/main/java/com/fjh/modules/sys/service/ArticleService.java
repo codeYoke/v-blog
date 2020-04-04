@@ -7,7 +7,7 @@ import com.fjh.common.utils.PagedResult;
  * @ProjectName: adminsystem
  * @Package: com.fjh.service
  * @Description: 首页操作业务逻辑接口
- * @Date: 2019/7/8 0008 15:45
+ * @Date: 2019/09/8 0008 15:45
  **/
 public interface ArticleService {
 

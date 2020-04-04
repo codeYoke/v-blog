@@ -1,24 +1,21 @@
 var registerBtn = $("#register-btn");
 var phone = $("#phone");
-/*var yan = $("#yan");*/
+var email = $("#email");
+var yan = $("#yan");
 var username = $("#username");
 var password = $("#password");
 var passwordSure = $("#passwordSure");
 var sex = $("input[type='radio']:checked");
 var noticeBox = $(".notice-box");
-
-/**
- * 手机号
- * @type {string}
- */
-
-var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+var emailReg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;//用来验证邮箱格式的正则表达式
+var phoneReg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
 /**
  * 注册事件
  */
 registerBtn.click(function () {
     var phone1 = phone.val().trim();
-   /* var yan1 = yan.val();*/
+    var email1 = email.val();
+    var yan1 = yan.val();
     var username1 = username.val();
     var password1 = password.val();
     var passwordSure1 = passwordSure.val();
@@ -26,15 +23,19 @@ registerBtn.click(function () {
         $(".notice-box-phone").show();
     } else if (phone1.length != 11) {
         $(".notice-box-phone-num").show();
-    } else if (!myreg.test(phone1)) {
+    } else if (!phoneReg.test(phone1)) {
         $(".notice-box-phone-num").show();
     } else if (checkPhone(phone1)) {
         $(".notice-box-phone-exit").show();
-    } /*else if (yan1.length != 4) {
-        $(".notice-box-code").show();
+    }else if (email1.length == 0) {
+        $(".notice-box-eamil").show();
+    }else if(!emailReg.test(email1)){
+        $(".notice-box-email-num").show();
+    }else if(checkEmail(email1)){
+        $(".notice-box-email-exit").show();
     } else if (!checkCode(yan1)) {
         $(".notice-box-code").show();
-    } */else if (username1.length == 0) {
+    } else if (username1.length == 0) {
         $(".notice-box-user").show();
     } else if (username1.toLowerCase().indexOf("admin") == 0 || username1.toLowerCase().indexOf("user") == 0) {
         $(".notice-box-name").show();
@@ -52,6 +53,7 @@ registerBtn.click(function () {
         var jsonStr = {
             username: username1,
             password: password1,
+            email:email1,
             phone: phone1,
             sex: sex.val()
         };
@@ -115,12 +117,38 @@ function checkPhone(data) {
             }
         },
         error: function (res) {
-            alert("客官，慢点按(⊙o⊙)？");
+            alert("这就是你单身的手速？");
         }
     });
     return mes;
 }
-
+/**
+ * 邮箱校验
+ * @param data
+ */
+function checkEmail(data) {
+    var str = {email: data};
+    var mes = true;
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "emailCheck",
+        // contentType: "application/x-www-form-urlencoded",
+        contentType: "application/json",
+        dataType: "json",
+        data: str,
+        success: function (data) {
+            //放入数据
+            if (data.status == 200) {
+                mes = false;
+            }
+        },
+        error: function (res) {
+            alert("这就是你单身的手速？");
+        }
+    });
+    return mes;
+}
 /**
  * 该用户是否存在
  * @param data
@@ -143,7 +171,7 @@ function nameLen(data) {
             }
         },
         error: function (res) {
-            alert("客官，慢点按(⊙o⊙)？");
+            alert("这就是你单身的手速？");
         }
     });
     return mes;
@@ -178,18 +206,15 @@ var timeCount = function () {
  */
 codeBtn.click(function () {
     codeBtn.attr("disabled", true);
-    var phone1 = phone.val().trim();
-    if (phone1.length == 0) {
-        $(".notice-box-phone").show();
+    var email1 = email.val().trim();
+    if (email1.length == 0) {
+        $(".notice-box-eamil").show();
         codeBtn.attr("disabled", false);
-    } else if (phone1.length != 11) {
-        $(".notice-box-phone-num").show();
+    }else if(!emailReg.test(email1)){
+        $(".notice-box-email-num").show();
         codeBtn.attr("disabled", false);
-    } else if (!myreg.test(phone1)) {
-        $(".notice-box-phone-num").show();
-        codeBtn.attr("disabled", false);
-    } else if (checkPhone(phone1)) {
-        $(".notice-box-phone-exit").show();
+    } else if(checkEmail(email1)){
+        $(".notice-box-email-exit").show();
         codeBtn.attr("disabled", false);
     } else {
         $.ajax({
@@ -199,20 +224,20 @@ codeBtn.click(function () {
             contentType: "application/json",
             dataType: "json",
             data: {
-                phone: phone1
+                email: email1
             },
             success: function (data) {
                 //放入数据
                 if (data.status == 200) {
-                    alert("手机验证码发送成功！");
+                    alert("验证码发送成功！");
                     timeCount();
                 } else {
-                    alert("手机验证码发送失败，请重新发送！");
+                    alert("验证码发送失败，请重新发送！");
                     codeBtn.attr("disabled", false);
                 }
             },
             error: function (res) {
-                alert("客官，慢点按(⊙o⊙)？");
+                alert("这就是你单身的手速？");
                 codeBtn.attr("disabled", false);
             }
         });
@@ -230,7 +255,7 @@ codeBtn.click(function () {
  * @returns {boolean}
  */
 function checkCode(data) {
-    var phone1 = phone.val().trim();
+    var email1 = email.val();
     var code = "";
     $.ajax({
         type: "GET",
@@ -240,14 +265,14 @@ function checkCode(data) {
         contentType: "application/json",
         dataType: "json",
         data: {
-            phone: phone1
+            email: email1
         },
         success: function (data) {
             //放入数据
             code = data.data;
         },
         error: function (res) {
-            alert("客官，慢点按(⊙o⊙)？");
+            alert("这就是你单身的手速？");
         }
     });
     if (data == code) {

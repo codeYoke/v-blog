@@ -61,6 +61,13 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
+    public int findByEmail(String email) {
+        int emailNum = registerDao.selectCount(new QueryWrapper<UsersEntity>().eq("email", email));
+        return emailNum;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
     public int findByUsername(String username) {
         int name = registerDao.selectCount(new QueryWrapper<UsersEntity>().eq("username", username));
         // 异步把数据库中的用户名存入缓存

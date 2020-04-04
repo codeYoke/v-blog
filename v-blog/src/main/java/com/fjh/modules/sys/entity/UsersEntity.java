@@ -51,7 +51,7 @@ public class UsersEntity implements Serializable {
     private String lastTime;
 
     /**
-     * 角色(1-超级管理员 2-普通用户 3-会员)
+     * 角色
      */
     private int roleId;
 

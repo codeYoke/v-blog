@@ -25,6 +25,12 @@ public interface RegisterService {
      * @return
      */
     public int findByPhone(String phone);
+    /**
+     * 邮箱号检测
+     * @param email
+     * @return
+     */
+    public int findByEmail(String email);
 
     /**
      * 用户名检测

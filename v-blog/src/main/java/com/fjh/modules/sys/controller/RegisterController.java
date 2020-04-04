@@ -39,7 +39,7 @@ public class RegisterController {
     public BlogJSONResult register(@RequestBody UsersEntity users){
         int result = registerService.insUsers(users);
         if(result > 0){
-            redisOperator.del(Constant.USER_PHONE_CODE+users.getPhone());
+            redisOperator.del(Constant.USER_PHONE_CODE+users.getEmail());
             return BlogJSONResult.ok();
         }
         return BlogJSONResult.errorMsg("注册失败");
@@ -68,6 +68,22 @@ public class RegisterController {
                 return BlogJSONResult.errorMsg("该手机号已被注册");
             }
         }
+    }
+
+    /**
+     * 邮箱号检测
+     * @param email
+     * @return 不存在 -- ok()     存在 -- errorMsg("该邮箱号已被注册")
+     */
+    @GetMapping("emailCheck")
+    public BlogJSONResult emailCheck(@RequestParam("email") String email){
+            int result = registerService.findByEmail(email);
+            if(result == 0){
+                return BlogJSONResult.ok();
+            }else{
+                return BlogJSONResult.errorMsg("该手机号已被注册");
+            }
+
     }
 
 
@@ -145,13 +161,13 @@ public class RegisterController {
 
     /**
      *  获取验证码(五分钟输入正确验证码即可)
-     * @param phone 手机号
+     * @param email 手机号
      * @return
      */
     @GetMapping("getCodeReflush")
-    public BlogJSONResult getCodeReflush(@RequestParam("phone") String phone){
-        if(redisOperator.hasKey(Constant.USER_PHONE_CODE+phone)){
-            return BlogJSONResult.ok(redisOperator.get(Constant.USER_PHONE_CODE+phone));
+    public BlogJSONResult getCodeReflush(@RequestParam("email") String email){
+        if(redisOperator.hasKey(Constant.USER_PHONE_CODE+email)){
+            return BlogJSONResult.ok(redisOperator.get(Constant.USER_PHONE_CODE+email));
         }else{
             return BlogJSONResult.errorMsg("验证码失效");
         }
