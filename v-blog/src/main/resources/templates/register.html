@@ -41,7 +41,10 @@
             <label>手机号:</label>
             <input type="text" name="" id="phone" value="" placeholder="手机号">
             <br>
-           <!-- <label>验证码:</label>
+            <label>邮箱:</label>
+            <input type="text" name="" id="email" value="" placeholder="邮箱">
+            <br>
+          <label>邮箱验证码:</label>
             <input type="text" id="yan" placeholder="点右边获取验证码"
                    style="width: 190px;">
             <button class="authCodeBtn am-btn am-btn-secondary am-round am-btn-sm"
@@ -73,8 +76,8 @@
             <div class="am-cf">
                 <input type="button" id="register-btn" name="" value="注 册"
                        class="am-btn am-btn-primary am-btn-sm am-fl">
-                <button class="am-btn am-btn-default am-btn-sm am-fr"><a href="/login" style="color:black;">登录试试
-                    ^_^?</a></button>
+                <button class="am-btn am-btn-default am-btn-sm am-fr"><a href="/login" style="color:black;">去登录->
+                </a></button>
             </div>
             <br>
             <br>
@@ -85,14 +88,18 @@
         <i class="am-icon-exclamation-circle"></i>
         <span> 手机号不能为空</span>
     </div>
-  <!--  <div class="notice-box notice-box-yan">
+    <div class="notice-box notice-box-eamil">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 邮箱不能为空</span>
+    </div>
+    <div class="notice-box notice-box-yan">
         <i class="am-icon-exclamation-circle"></i>
         <span> 验证码不能为空</span>
     </div>
     <div class="notice-box notice-box-code">
         <i class="am-icon-exclamation-circle"></i>
         <span> 验证码错误</span>
-    </div>-->
+    </div>
     <div class="notice-box notice-box-user">
         <i class="am-icon-exclamation-circle"></i>
         <span> 用户名不能为空</span>
@@ -115,23 +122,31 @@
     </div>
     <div class="notice-box notice-box-password-num">
         <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，密码格式6-18位</span>
+        <span> 密码格式6-18位</span>
     </div>
     <div class="notice-box notice-box-phone-num">
         <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，输入有效的手机号码！</span>
+        <span> 输入有效的手机号码！</span>
+    </div>
+    <div class="notice-box notice-box-email-num">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 输入有效的邮箱！</span>
     </div>
     <div class="notice-box notice-box-phone-exit">
         <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，该手机号已被绑定！</span>
+        <span> 该手机号已被绑定！</span>
+    </div>
+    <div class="notice-box notice-box-email-exit">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 该邮箱已被注册！</span>
     </div>
     <div class="notice-box notice-box-reg">
         <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，注册失败！</span>
+        <span> 注册失败！</span>
     </div>
     <div class="notice-box notice-box-name">
         <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，不能输入敏感字!</span>
+        <span> 不能输入敏感字!</span>
     </div>
 
     <div class="am-modal am-modal-alert" tabindex="-1" id="publish-success" style="border-radius: 5px;">

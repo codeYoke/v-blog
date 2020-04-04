@@ -66,7 +66,7 @@ function updPassword() {
                 }
             },
             error: function (res) {
-                alert("客官，慢点按(⊙o⊙)？");
+                alert("这就是你单身的手速？");
             }
         });
     }
@@ -109,7 +109,7 @@ function checkPhone1(data) {
             }
         },
         error: function (res) {
-            alert("客官，慢点按(⊙o⊙)？");
+            alert("这就是你单身的手速？");
         }
     });
     return mes;
@@ -139,7 +139,7 @@ function checkCode(data) {
             code = data.data;
         },
         error: function (res) {
-            alert("客官，慢点按(⊙o⊙)？");
+            alert("这就是你单身的手速？");
         }
     });
     if (data == code) {
@@ -213,7 +213,7 @@ codeBtn.click(function () {
                 }
             },
             error: function (res) {
-                alert("客官，慢点按(⊙o⊙)？");
+                alert("这就是你单身的手速？");
                 codeBtn.attr("disabled", false);
             }
         });

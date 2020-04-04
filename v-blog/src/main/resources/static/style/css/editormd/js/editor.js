@@ -30,7 +30,7 @@ $(function () {
 });
 
 var publishBtn = $(".publishBtn");
-var qzEditorTitle = $("#hao-editor-title");
+var haoEditorTitle = $("#hao-editor-title");
 var myEditormdHtmlCode = $("#my-editormd-html-code");
 var noticeBoxTitle = $(".notice-box-title");
 var noticeBoxContent = $(".notice-box-content");
@@ -39,9 +39,9 @@ var noticeBox = $('.notice-box');
  * 发布博客
  */
 publishBtn.click(function (data) {
-    var qzEditorTitleValues = qzEditorTitle.val();
+    var haoEditorTitleValues = haoEditorTitle.val();
     var myEditormdHtmlCodeValues = myEditormdHtmlCode.val();
-    if (qzEditorTitleValues.length == 0) {
+    if (haoEditorTitleValues.length == 0) {
         noticeBoxTitle.show();
     } else if (myEditormdHtmlCodeValues.length == 0) {
         noticeBoxContent.show();
@@ -195,7 +195,7 @@ surePublishBtn.click(function () {
     /**
      * 标题
      */
-    var title = qzEditorTitle.val();
+    var title = haoEditorTitle.val();
 
 
     if (length <= 0 || tagValues[length - 1] == "") {

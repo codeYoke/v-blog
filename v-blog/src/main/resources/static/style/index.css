@@ -68,7 +68,7 @@
 }
 
 .hao-gonggao .last {
-    margin-left: -13%;
+    margin-left: 0%;
     color: #0a628f;
     font-size: 16px;
 }
@@ -78,7 +78,7 @@
 }
 
 .hao-gonggao p {
-    padding: 10% 20%;
+    padding: 6% 20%;
     text-align: center;
     color: lightslategrey;
 
@@ -91,6 +91,10 @@
 .hao-xinxi p {
     color: #5c6b7a;
 }
+/*.hao-xinxi image {
+    width:100%;
+    height:100%;
+}*/
 .am-nav li:hover{
     color: #7e6792;
 }
