@@ -10,7 +10,7 @@ function putInAllArticle(data) {
         var center = $(
             '<div class="hao-center">' +
             '<header class="hao-article">' +
-            '<h1 itemprop="name" style="padding-bottom: 4%;color: #8f3786">客官,查询到底了</h1>' +
+            '<h1 itemprop="name" style="padding-bottom: 4%;color: #8f3786"> ,查询到底了</h1>' +
             '</header>' +
             '</div>'
         );

@@ -42,12 +42,18 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public int updLike(long articleId) {
         // 先从缓存中查询
+        long blogLikes = 0l;
         if(redisOperator.hasKey(Constant.BLOG_LIKES+articleId)){
-            redisOperator.incr(Constant.BLOG_LIKES+articleId, 1);
+            blogLikes = redisOperator.incr(Constant.BLOG_LIKES+articleId, 1);
         }else{
             long likes = blogDao.selectById(articleId).getLikes();
             redisOperator.set(Constant.BLOG_LIKES+articleId, likes+1);
         }
+        //如果redis不重启，这一段逻辑可以不执行，直接缓存中加数据，可以提升性能，但缺乏数据安全性
+        BlogMessageVOEntity blog = new BlogMessageVOEntity();
+        blog.setLikes((int) blogLikes);
+        blog.setId(articleId);
+        blogDao.updateById(blog);
         return (int)redisOperator.get(Constant.BLOG_LIKES+articleId);
     }
 

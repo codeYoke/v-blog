@@ -24,7 +24,7 @@ function putInArticle(data) {
             '<div class="article-entry" style="height: 130px;overflow:hidden;">' +
             ' <p>' + obj['articleTabled'] + '</p>' +
             '</div>' +
-            '<div class="read-all">' +
+            '<div class="read-all" style="padding-left: 13px">' +
             '<a href="' + obj['articleUrl'] + '">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
             '</div>' +
             '<hr>' +
@@ -97,8 +97,75 @@ function ajaxFirst(currentPage) {
 ajaxFirst(1);
 
 
+/*获取公告信息*/
+function ajaxNoticeInfo(currentPage) {
+    var jsonStr = {pageSize: 3, pageNum: currentPage};
+    $.ajax({
+        type: "GET",
+        url: "/getAllNotice",
+        // contentType: "application/x-www-form-urlencoded",
+        contentType: "application/json",
+        dataType: "json",
+        data: jsonStr,
+        success: function (data) {
+            //放入数据
+            if (data.status == 200) {
+                putInNotice(data.data);
+                scrollTo(0, 0);//回到顶部
+
+                // 分页查询
+                putPageHelperNotice(data, currentPage);
+            } else {
+                alert("无权限");
+                toLogin();
+            }
+        },
+        error: function () {
+        }
+    })
+}
 /**
- * 广告上下滚动
+ * 分页查询公告信息
+ * @param data
+ */
+function putPageHelperNotice(data, curnum) {
+    var count = data.data.records;
+    //总页数大于页码总数
+    layui.use('laypage', function () {
+        var laypage = layui.laypage;
+        //执行一个laypage实例
+        laypage.render({
+            elem: 'page-helper-notice'
+            , count: count//数据总数
+            , limit: 10
+            , curr: curnum
+            , jump: function (obj, first) {
+                if (!first) {
+                    curnum = obj.curr;
+                    ajaxNoticeInfo(curnum);
+                }
+            }
+        });
+    });
+}
+
+/**
+ * 获取公告信息
+ */
+    ajaxNoticeInfo(1);
+
+function putInNotice(data) {
+    $(".hao-notice-ul").html('');
+    $.each(data.rows, function (index, obj) {
+        var center = (
+            '<li>' + obj['noticeContent'] + '</li>'
+        );
+        $(".hao-notice-ul").append(center);
+    })
+}
+
+/**
+ * 公告上下滚动
  */
 function getStyle(obj,name){
     if(obj.currentStyle)

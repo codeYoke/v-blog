@@ -485,7 +485,7 @@ function putPageHelperNotice(data, curnum) {
             , jump: function (obj, first) {
                 if (!first) {
                     curnum = obj.curr;
-                    ajaxFirstFriend(curnum);
+                    ajaxFirstNotice(curnum);
                 }
             }
         });
@@ -511,7 +511,7 @@ function ajaxFirstNotice(currentPage) {
         success: function (data) {
             //放入数据
             if (data.status == 200) {
-                putInFriend(data.data);
+                putInNotice(data.data);
                 scrollTo(0, 0);//回到顶部
 
                 // 分页查询

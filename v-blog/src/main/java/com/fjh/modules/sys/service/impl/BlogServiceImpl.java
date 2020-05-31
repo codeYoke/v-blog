@@ -118,7 +118,6 @@ public class BlogServiceImpl implements BlogService {
     public void publishBlog(BlogMessageVOEntity blogMessageVO) {
         long id = 0L;
         BlogMessageVOEntity blog = null;
-//        EsBlogMessage esBlogMessage = null;
         if (blogMessageVO.getId() == 0) {
             id = new TimeUtil().getLongTime();
             blogMessageVO.setId(id);
@@ -130,9 +129,7 @@ public class BlogServiceImpl implements BlogService {
             blogMessageVO.setArticleUrl("/article/" + blogMessageVO.getId());
             blogDao.insert(blogMessageVO);
             blog = blogDao.selectById(id);
-//            esBlogMessage = new EsBlogMessage(blog);
         }
-//        esService.saveBlog(esBlogMessage);
         // 存入缓存
         redisService.SaveEditBlog(blogMessageVO);
     }

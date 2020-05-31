@@ -409,7 +409,7 @@ function putInNotComment() {
     var center = $(
         '<div class="am-g">' +
         '<div class="comment-com am-kai">' +
-        '暂无评论，抢个沙发吧' +
+        '暂无评论，抢沙发！' +
         '</div>' +
         '</div>'
     );

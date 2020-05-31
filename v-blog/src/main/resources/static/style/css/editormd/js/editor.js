@@ -122,7 +122,7 @@ $(function () {
                 $("#content").val(''+data.data.text);
                 selectType.val(''+data.data.selectType);
                 selectCategories.val(''+data.data.selectCategories);
-                selectGrade.val(''+data.data.selectGrade);
+               /* selectGrade.val(''+data.data.selectGrade);*/
                 if(data.data.selectType == "转载"){
                     originalAuthor.val(''+data.data.originalAuthor);
                     $("#originalAuthorHide").show();
@@ -152,7 +152,7 @@ $(function () {
 发表博客
  */
 var selectCategories = $("#select-categories");
-var selectGrade = $("#select-grade");
+//var selectGrade = $("#select-grade");
 var originalAuthor = $("#originalAuthor");
 var message = $(".url");
 var surePublishBtn = $(".surePublishBtn");
@@ -192,9 +192,9 @@ surePublishBtn.click(function () {
         $(".notice-box-type").show();
     } else if (selectCategories.val() == "choose") {
         $(".notice-box-categories").show();
-    } else if (selectGrade.val() == "choose") {
+    } /*else if (selectGrade.val() == "choose") {
         $(".notice-box-grade").show();
-    } else if (selectType.val() == "转载" && originalAuthor.val() == "") {
+    }*/ else if (selectType.val() == "转载" && originalAuthor.val() == "") {
         $(".notice-box-originalAuthor").show();
     } else {
         var data = {
@@ -202,7 +202,7 @@ surePublishBtn.click(function () {
             tagValue: tagValues,
             selectType: selectTypes,
             selectCategories: selectCategorie,
-            selectGrade: selectGrades,
+           /* selectGrade: selectGrades,*/
             originalAuthor: originalAuthors,
             message: messages,
             title: title,
