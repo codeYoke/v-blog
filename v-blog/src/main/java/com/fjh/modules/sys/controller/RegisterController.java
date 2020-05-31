@@ -161,7 +161,7 @@ public class RegisterController {
 
     /**
      *  获取验证码(五分钟输入正确验证码即可)
-     * @param email 手机号
+     * @param email 邮箱
      * @return
      */
     @GetMapping("getCodeReflush")

@@ -166,38 +166,26 @@ surePublishBtn.click(function () {
     for (var i = 0; i < length; i++) {
         tagValues[i] = $(".tag-name").eq(i).html();
     }
-
     /**
      *  文章类型
      */
     var selectTypes = selectType.val();
-
     /**
      * 博客分类
      */
     var selectCategorie = selectCategories.val();
-
-    /**
-     * 文章等级
-     */
-    var selectGrades = selectGrade.val();
-
     /**
      * 原作者
      */
     var originalAuthors = originalAuthor.val();
-
     /**
      * 文章（0-公开  1-私密）
      */
     var messages = $("input[type='radio']:checked").val();
-
     /**
      * 标题
      */
     var title = haoEditorTitle.val();
-
-
     if (length <= 0 || tagValues[length - 1] == "") {
         $(".notice-box-tags").show();
     } else if (selectType.val() == "choose") {

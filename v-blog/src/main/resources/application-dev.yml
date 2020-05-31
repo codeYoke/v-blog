@@ -17,7 +17,7 @@ spring:
     testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
-    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    #   配置监控统计拦截的filters
     filters: stat,wall,log4j
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
@@ -56,12 +56,12 @@ fjh:
     host: 127.0.0.1
     port: 6379
   ######## 文件路径
-  file-path: /home/memo012/code/acblogMessage
+  file-path: /home/fjh/code/vblogMessage
   ######################################
   ######## druid 账号密码
   ######################################
   druid:
-    password: acblogdev
+    password: vblogdev
 
 
 ######################################

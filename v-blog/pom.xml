@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fjh</groupId>
-    <artifactId>acblog</artifactId>
+    <artifactId>vblog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>acblog</name>
+    <name>vblog</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -59,7 +59,7 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
-        <!--&lt;!&ndash;引入druid数据源&ndash;&gt;-->
+        <!--数据源-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>

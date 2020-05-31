@@ -9,7 +9,6 @@
 ## 项目架构
 ```java
 |--- pom                                        // vblog配置文件
-|--- blog-plus.sql                              // vblog数据库设计
 |--- src                                        // 源代码
 |--- |--- main                                  // 代码页
           |--- Java                             // 后台代码
@@ -47,7 +46,6 @@
 :seedling:web框架： spring boot  
 :seedling:数据持久层： mybatis-plus  
 :seedling:安全框架： shiro (暂定，后续可能采用jwt) 
-:seedling:搜索引擎： elasticSearch  
 :seedling:缓存：redis  
 :seedling:数据库：Mysql  
 
