@@ -73,7 +73,7 @@ $.ajax({
             $("#article-like-span").html(data.data.likes);
             putInArticleDetail(data.data);
         }else if(data.status == 500){
-            var cent = ('<div class="hao-article-top"><div class="article-top am-kai">客官，博客可能被博主一不小心删除了</div></div>');
+            var cent = ('<div class="hao-article-top"><div class="article-top am-kai">博客可能被博主一不小心删除了</div></div>');
             $(".hao-art").html(''+cent);
         }
 
@@ -465,7 +465,7 @@ function putInNotComment() {
     var center = $(
         '<div class="am-g">' +
         '<div class="comment-com am-kai">' +
-        '暂无评论，抢个沙发吧' +
+        '暂无评论，抢沙发！' +
         '</div>' +
         '</div>'
     );
